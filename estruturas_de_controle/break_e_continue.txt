@@ -1,0 +1,4 @@
+o break não tem influencia no if.
+
+o continue funciona dentro de um laço for e de um while. Nao funciona no if.
+Ele interrompe a execução atual e vai para a proximo, mas sem sair do laço. So faz sentido usar em estruturas de repetição.

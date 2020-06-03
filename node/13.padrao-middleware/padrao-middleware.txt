@@ -1,0 +1,4 @@
+middleware ou padrao change of responsabilty (cadeia de responsabilidade)
+-requisicao e resposta
+-nao existe acomplamento entre os processos. Qm conhece a sequencia de passos é a corrente, a cadeia. O passo é independente, entao voce pode trocar a sequencia dos passos. Vc tem a funcao next que chama o proximo passo.
+-O proximo passo é passado para o passo atual como parametro.

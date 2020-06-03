@@ -1,0 +1,67 @@
+<h1>Listas</h1>
+
+<h2>Listas Ordenadas</h2>
+<ol>
+        <li>Bia</li>
+        <li>Pedro</li>
+        <li>Ana</li>
+        <li>João</li>
+</ol>
+
+<h2>Listas Não ordenadas</h2>
+<ul>
+        <li>Queijo</li>
+        <li>Leite</li>
+        <li>Pão</li>
+</ul>
+
+<h2>Listas de definições - usado para glossário</h2>
+
+<dl>
+        <!-- termo que vai ser definido -->
+        <dt>BaaS</dt>
+        <!-- definição -->
+        <dd>Backend como serviço</dd>
+</dl>
+
+<h2>Listas Aninhadas</h2>
+
+<ul class="tree">
+        <li><span wm-folder>Backend</span>
+                <ul>
+                        <li><span wm-folder>APP</span>
+                                <ul>
+                                        <li>produto.js</li>
+                                        <li>usuario.js</li>
+                                        <li>venda.js</li>
+                                </ul>
+                        </li>
+
+
+                        <li><span wm-folder>Config</span>
+                                <ul>
+                                        <li>banco.js</li>
+                                        <li>rotas.js</li>
+                                        <li>servidor.js</li>
+                                </ul>
+                        </li>
+                </ul>
+        </li>
+</ul>
+
+<link rel="stylesheet" href="http://files.cod3r.com.br/curso-web/tree.css">
+
+<script>
+        document.querySelectorAll("[wm-folder]").forEach(folder => {
+                folder.addEventListener('click', function () {
+                        // podemos debugar com o comando debugger
+                        //nextElementSibling - ele pega o proximo elemento que é irmão
+                        const ul = folder.nextElementSibling
+
+                        //vamos armazenar qual é o display da nossa ul que armazenamos no passo anterior
+                        const displayAtual = ul.style.display
+                        ul.style.display = displayAtual === 'none' ? 'block' : 'none'
+                        
+                })
+        })
+</script>

@@ -1,0 +1,2 @@
+1) arquivo estatico - ele é apenas lido do servidor  e devolvido para o browser
+2) arquivo dinamico - ele e gerado a partir de um codigo e devolvido para o browser

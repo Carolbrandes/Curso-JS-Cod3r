@@ -1,0 +1,12 @@
+1) https - protocolo em que a comunicação é criptografada. Ele protocola os dados em cima de um certificado. Ele usa os protocolos TLS
+
+2) http + tls - tls (transport layer security) - versao 4 
+
+3) http + ssl - versao inicial
+
+4) certificado é diferente de protocolo. SLL e TLS são protocolos.
+
+5) a url, o header e o body das requisições são criptografados
+
+
+

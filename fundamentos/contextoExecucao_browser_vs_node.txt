@@ -1,0 +1,38 @@
+Qd utilizamos o js no front end no browser trabalhamos com operacoes assincronas, padroes de projeto (observe), funcoes callback.
+
+Já no backend é utilizado o node.
+
+qd criamos no console do browser uma variavel,  let b = 123 e fizermos window.b, ele vai ter como resultado undefined. Apesar a variavel b ter sido declarada no escopo global, ela nao vai para o window.
+Se voce declarar como const tb nao vai para o window. Apenas o var vai para o window.
+
+Se criarmos uma funcao nomeada ela tb vai para o window.
+
+Agora se atribuirmos uma funcao anonima a uma const, ela ja nao vai para o window.
+
+Para podermos nos "proteger" do escopo global, podemos declarar nossas variaveis dentro de um objeto:
+
+mesmo sendo declarado na console do navegador, o this nao vai esta se referenciando ao window mas a pessoa.
+let pessoa = {nome: 'Ana',
+falar: function(){return `Eu sou ${this.nome} `}}
+
+pessoa é o unico que esta no escopo global, mas o q esta dentro de pessoa nao.
+
+O global no node equivale ao window
+dentro de node cada arquivo e um modulo diferente
+
+ex:
+
+this.c = 456
+
+o this é module.exports
+
+let a = 3
+
+o let é local nao e exportada.
+
+na declaracao abaixo estamos colocando a var abc diretamente no global do node.
+abc = 3 
+
+entender o runtime de onde estamos utilizando js
+
+

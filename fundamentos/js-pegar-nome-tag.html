@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+</head>
+<body>
+
+        <div class="tag"></div>
+        <p class="tag"></p>
+        <span class="tag"></span>
+        <li class="tag"></li>
+        <a class="tag"></a>
+        
+</body>
+
+<script>
+
+        const colors = {
+                p: '#388e3c',
+                div: '#1565c0',
+                span: '#e53935',
+                li: '#f67809',
+                padrao: '#616161',
+                get(tag){
+                        return this[tag] ? this[tag] : this.padrao;
+                }
+        }
+        document.querySelectorAll(".tag").forEach(box => {
+                const tagName = box.tagName.toLocaleLowerCase();
+                box.style.boderColor = colors.get(tagName);
+
+                // se nao tiver a classe nolabel
+                if(!box.classList.contains('nolabel')){
+                        const label = document.createElement('label');
+                        label.style.backgroundColor = colors.get(tagName);
+                        label.innerHTML = tagName;
+
+                        // vai inserir antes do primeiro elemento filho do box
+                        box.insertBefore(label, box.childNodes[0]);
+
+                }
+        })
+</script>
+</html>

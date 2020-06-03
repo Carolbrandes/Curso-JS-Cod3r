@@ -1,0 +1,20 @@
+1) Exemplos de servidores web: Apache, Microsoft IIS, JBoss, NGINX, Node, TomCat ...
+No caso do apache para cada requisicao temos uma thread. 
+Já no caso do Node e NGINX temos uma unica thread para todas requisicoes, e ai tem o event loop que vai pegar e mandar "pull thread"
+
+
+2) Uma aplicacao web sendo publicada, a maquina do cliente para acessar o site, so que o seu site ele possui um endereco IP.
+Ex: Se o cliente escreve www.cod3r.com.br antes de ele conseguir chegar diretamente no servidor, é necessário que uma consulta DNS seja feita. 
+O cliente tem que antes passar pelo DNS para resolver quem é www.cod3r.com.br, depois que ele resolveu o IP ele vai para o servidor correto. 
+
+3) Virtual Hosting -> tem varios sites sendo atendidos
+
+4) è comum dentro de um web server termos uma estrutura de pastas ( imagens, css, js  e etc) 
+
+5) É comum termos um servidor especializado em entregar conteudo estatico, como img, css  e js
+
+6) redes cdn - redes de alto desempenho q replicam os dados em diferentes locais, pegando o servidor mais proximo do cliente.
+
+7) web stack -> Linguagem, web server, db e sistema operacional. Ex: LAMP, WAMP 
+
+8) Qd vc tem um servidor web que esta visivel na internet vc tem q ter um registro no DNS

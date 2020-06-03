@@ -1,0 +1,50 @@
+1) Protocolo HTTP = Hyper Text Transfer Protocol
+Hyper text -> um texto muito grande que possui links associados. Documentos escritos em html
+
+2) Faz parte da camada de aplicação (camada mais alto nivel)
+
+3) Ele é stateless -> o servidor nao sabe se a requisicao q ele esta recebendo é a primeira, segunda... Não tem estado. Toda a conexão ocorre como se fosse a primeira vez. 
+
+4) Cliente servidor - requisicao e resposta. A requisicao é baseada na url com conjunto de parametros, faco a requisicao e recebo algo como resposta.  Essa resposta pode ser um arquivo texto em formato json, html, video... 
+
+5) Opera em cima da pilha tcp/ip
+
+6) retorna conteudos para formar uma pagina web (html, css, js, midias)
+
+7) Fluxo http: 
+
+        1) Usuario informa a url 
+        2) browser gera a requisicao ( ex: GET / HTTP / versao 1.1 - host: www.google.com.br)
+        3) servidor web gera a resposta. 
+                HTTP / 1.1 200 (status de resposta) ok 
+                (cabeçalho)
+                content-type: text/html; charset=UTF-8
+                date: Mon, 30 abril 2018 17:00:02 GMT
+                connection: close
+                content-Lenght: 438
+
+        4) browser exibe a página
+
+        OBS: Para exibir uma pagina são várias requisições, para imgs, fontes... 
+
+
+8) Metodos do HTTP: get, post, put, delete, trace, options, connect e head
+
+9) GET - qd temos uma requisicao get os parametros vao na propria url 
+ Ex: www.google.com.br/search?q=web+moderno&hl=pt-BR 
+www.google.com.br/search - compõe a url
+q=web+moderno  - parametos contendo chave (q) e valor (web+moderno)
+o parametro q representa uma query (consulta)
+o hl é outro parametro que representa a lingua da maquina host para aparecer o resultado em portugues. 
+
+10) Post - os parametros vao no corpo da requisicao. Porem o que da seguranca é utilizar o protocolo HTTPS que faz a comunicao da maquina cliente com o servidor seja criptografada. 
+
+11) Grupo de status HTTP: 
+        1xx - informacao
+        2xx - sucesso
+        3xx - redirecionamento
+        4xx - erro do cliente
+        5xx - erro no servidor
+        
+
+

@@ -1,0 +1,9 @@
+1) Evolução das arquiteturas:
+
+1ª- mainframe: Centralizado no mainframe, a logica era no mainframe. Toda logica de negocio, renderizacao, parte do mainframe.
+
+2ª- cliente-server: Duas ou tres camadas. Cliente rico (q era aplicacao em desktop com regras de negocias implementadas no proprio cliente), middleware (servidor), as vezes esse cliente acessava diretamente o banco de dados. É chamada de rico pq varias coisas sao processadas do lado do cliente. A dificuldade de atualziar a aplicacao. Pq a cada atualizacao, tinha que atualizar todas as maquinas. 
+
+3ª- web server-side: toda a logica, renderizacao é processada do lado do servidor, o navegador serve apenas como um terminal "burro". O servidor centraliza todas as responsabilidades. O lado negativo, é que qd é necessário fazer alguma atualizacao, vc precisa ir no servidor e gerar o conteudo, isso gera uma latencia, lentidao.. prejudicando a experiencia do usuario. 
+
+4ª- front-end + services (client-Side): o acesso ao servidor é para obter dados. Servidor - gera regras de negocio, gera web-services. Cliente ricos, renderizacao dos componentes, mensagem de erro, td isso é gerado do cliente com JS. 

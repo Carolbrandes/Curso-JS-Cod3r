@@ -1,0 +1,128 @@
+<div wm-slider>
+        <p>
+                <img src="http://files.cod3r.com.br/curso-web/imagem1.jpg" alt="Muro da Cidade" width="513" height="342"
+                        title="Muro da Cidade por Tarso Bessa">
+        </p>
+
+        <p>
+                <img src="http://files.cod3r.com.br/curso-web/imagem2.gif" alt="Intro cod3r" height="342">
+        </p>
+
+        <p>
+                <img src="http://files.cod3r.com.br/curso-web/imagem3.png" alt="Rio de Janeiro" height="342">
+        </p>
+
+
+        <p class="texto">
+                <img src="http://files.cod3r.com.br/curso-web/avatar.jpg" alt="Avatar" height="50" align="left">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi vitae odio harum est quae doloribus
+                praesentium,
+                sed tempore, eveniet perspiciatis delectus eum eligendi eaque facilis cupiditate ullam asperiores!
+                Voluptatum,
+                natus?
+        </p>
+
+        <p class="cidade"></p>
+
+        <p>
+                <!-- com picture voce pode colocar varias imgs e colocar criterios para elas serem exibidas -->
+                <picture>
+                        <!-- a img so sera exbida caso a tela tenha no minimo 600px, abaixo de 600px essa img nao sera exibida-->
+                        <source srcset="http://files.cod3r.com.br/curso-web/logo-larga.png" media=(min-width:600px)>
+
+                        <img src="http://files.cod3r.com.br/curso-web/logo-estreita.png" alt="logo">
+                </picture>
+        </p>
+
+</div>
+
+<style>
+        .circular {
+                width: 513px;
+                background-color: #444;
+        }
+
+        .texto {
+                width: 400px;
+        }
+
+        .texto img {
+                margin: 0 12px 2px 0;
+        }
+
+        .cidade {
+                width: 513px;
+                height: 342px;
+                background-image: url('http://files.cod3r.com.br/curso-web/imagem4.jpg');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: 200%;
+        }
+
+        p {
+                position: absolute;
+                display: none;
+        }
+</style>
+
+
+<script>
+        // inicio - posicao inicial
+        // fim -posicao final
+        // passo - de qt em qt q vai andar
+        // callback - funcao q sera chamada qd ele terminar de mover o elemento
+
+        function mover(elem, inicio, fim, passo, callback) {
+                // ex: ele iniciou na posicao 1000px e o passo e 5, ele vai para 995px.
+                const novoInicio = inicio - passo;
+
+                if (novoInicio >= fim) {
+                        elem.style.left = novoInicio + "px";
+                        setTimeout(() => mover(elem, novoInicio, fim, passo, callback), 7)
+                } else {
+                        // qd acabar o movimento vamos chamar a funcao callback
+                        callback();
+                }
+        }
+
+        // teste para um imagem
+        // const p = document.querySelector('[wm-slider] > p')
+        // p.style.display = 'block';
+        // // colocamos -520 pq a img tem 513px, entao para passar do tam da img
+        // mover(p, 1500, -520, 5, () => {
+        //         console.log("terminou")
+        // })
+
+        function slider() {
+                // o querySelectorAll retorna um nodeList
+                // o nodeList e diferente do array, ele nao tem algumas propriedades que o array tem
+                // entao vamos transformar esse nodelist em um array com a funcao Array.from()
+                const elementos = document.querySelectorAll('[wm-slider] > p');
+                const slides = Array.from(elementos);
+                exibirSlide(slides, slides[0]);
+        }
+
+        function exibirSlide(slides, slide) {
+                slide.style.display = "block";
+
+                // o inicio e o tam da tela atual que vamos adquirir com a propriedade innerWidth
+                const inicio = innerWidth;
+                // vamos conseguir a largura da area da tag p a partir do clientWidth
+                const fim = -slide.clientWidth;
+                // vai comecar a partir desse ponto o movimento
+                slide.style.left = `${inicio}px`;
+
+                mover(slide, inicio, fim, 5, () => {
+                // qd termina o movimento ele vai chamar o prox slide
+                        slide.style.display = "none";
+                        exibirSlide(slides, getProximo(slides, slide))
+                })
+        }
+
+        function getProximo(lista, atual){
+              const i = lista.indexOf(atual) + 1;  
+              return i < lista.length ? lista[i] : lista[0];
+        }
+
+        slider()
+</script>

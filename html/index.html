@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+                #conteudo{
+                        padding: 30px 0;
+                }
+        </style>
+</head>
+
+<body>
+
+        <!-- 1º) instalamos o servidor http do node, usando o comando: npm i -g http-server-->
+        <!-- 2º) vamos abrir o arquivo com servidor, utilizando o comando:  http-server . -->
+        <!-- Obs: para acessar em outra porta: http-server -p 9090 -->
+        <!-- 3º) Para desabilitar o armazenamento em cache utilizamos o comando: http-server -c-1 . -->
+
+
+        <header>
+                <h1>Exercícios HTML</h1>
+        </header>
+
+        <nav>
+                <a href="#" wm-nav="exercicios/teste.html">link</a> | 
+                <a href="#" wm-nav="exercicios/texto01.html"> Tags de Texto </a> | 
+                <a href="#" wm-nav="exercicios/listas.html"> Listas </a> | 
+                <a href="#" wm-nav="exercicios/links.html"> Links</a> |
+                <a href="#" wm-nav="exercicios/tabela.html"> Tabela</a> |
+                <a href="#" wm-nav="exercicios/formulario/formulario.html"> Formulário</a> |
+                <a href="#" wm-nav="exercicios/imagens.html"> Imagens</a> |
+                <a href="#" wm-nav="exercicios/videos.html"> Videos</a> |
+                <a href="#" wm-nav="exercicios/tags-nao-visuais.html"> Tags não visuais</a> 
+        </nav>
+
+        <section id="conteudo"></section>
+
+        <footer>curso de web moderno</footer>
+
+        <script>
+                const links = document.querySelectorAll("[wm-nav]");
+                const conteudo = document.querySelector("#conteudo");
+
+                links.forEach(link => {
+                        link.addEventListener('click', (e) => {
+                                e.preventDefault();
+                                // o fetch faz uma requisição ajax
+                                fetch(link.getAttribute('wm-nav'))
+                                // resp.text() -> pega o conteudo html da pagina q estamos fazendo a requisição
+                                        .then(resp => resp.text())
+                                        // somente qd a promisse de cima for resolvida, que vamos para segunda promisse, onde vamos atribuir o conteudo html "pego" na requisicao e ai colocarmos na div com id conteudo
+                                        .then(html => conteudo.innerHTML = html)
+                        });
+                });
+        </script>
+
+</body>
+
+</html>

@@ -1,0 +1,1 @@
+O node é um runtime js e ele é fomado por duas partes: v8 (interprator js do google) + LIBUV ( q trata de forma assincrona a parte mais lenta do processo, q acesso ao bd, td que diz respeito a IO).

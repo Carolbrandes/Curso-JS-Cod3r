@@ -1,0 +1,62 @@
+1) Internet - grande rede de computadores
+
+2) Topologias de rede: centralizada (tem um no central que alimenta toda a rede de pcs), distribuida (distribuicao dos pontos - é a Topologia utilizada na Internet)
+
+3) Web (teia)-> temos varios niveis de rede. Redes sao organizadas. Provedor de nivel 1, Provedor de nivel 2....
+
+4) Protocolo TCP/IP é a base da Internet. 
+        TCP - Transmission Control Protocol - Transporte ( orientado a conexao e confiavel). Aqui ha uma conversa pre-eliminar entre as duas pontas, para que o dado seja transferido.
+        IP - Internet Protocol - roteamento entre redes. Dai que vem o endereco IP
+
+        * Ele é baseado em um padrao de projeto chamado "layers"
+        * É uma aplicação, um software
+        * separado em camadas, onde cada uma tem a sua responsabilidade. Abaixo as camadas:
+                - aplicação (HTTP, FTP, SMTP, comunicacao processo-a-processo, numero da porta)
+                - Transporte (TCP (confiavel), UDP (melhor esforco, ideial para tempo real), comunicacao Host-a-Host, confiabilidade, integridade)
+                -  Internet (IP - internet Protocol, conexao entre redes, transferencia de pacotes)
+                - fisica, que é a camada de rede ( Ethernet, WI-FI, Mac Adress, Fisica (hardware) e Enlace (software) )
+
+        A camada de cima usa a camada de baixo. Porem a camada de transporte nao precisa se preocupar com a camada de rede (a fisica) apenas com a internet.
+
+        Dentro do pacote tcp/ip vai tendo cabeçalhos e rodapes da mensagem para que possa envelopar os dados entre uma camada e outra.
+
+        * Ponta a Ponta = Máquina a Máquina. EX: Qd estamos conectando ao servidor da google, quando acessamos o gmail. Para isso nao basta conectar maquina com maquina, mas processo com processo. 
+
+
+
+5) IP v4 - Ex: 192.168.100.230 
+        - existem IPs de classe A, classe B e classe C 
+        - parte do ip esta destinado para identficar a rede que o pc esta 
+        - e outra parte esta para identifcar um pc dentro de uma rede
+
+        Classe A: 
+                192 - identifca a rede
+                168.100.230 - identifica host ou a maquina
+                255.0.0.0 - mascara de subrede 
+                Signifca q tem pouquissimas redes e muitas maquinas
+
+
+        Classe B:
+                192.168 - identifica a rede
+                100.230 - identifca a maquina
+                255.255.0.0 - mascara de subrede
+
+
+        classe C:
+                192.168.100 - rede
+                230 - maquina
+                255.255.255.0 - mascara de suberede. Para diminuir o numero de maquinas conectas a rede, basta mexer na mascara de subrede. 
+
+        O IP para ser interpreatdo precisa da mascara de subrede
+
+
+        6) Porta - é um processo. O processo e mapeado pela porta. 
+
+
+
+
+
+
+
+
+

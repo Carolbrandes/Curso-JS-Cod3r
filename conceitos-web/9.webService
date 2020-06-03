@@ -1,0 +1,9 @@
+web service -> é um serviço web, serviço de negocio (ex: obter a lista dos clientes devedores). Os dados sao trafegados de forma textual.
+
+SOAP (simple object acess protocol) - vresao mais antiga, mais burocratico, baseado em xml, a requisicao e a resposta e e formato xml
+REST (representational state transfer) - mais simples, mais leve de trabalhar, json, http. ele usa os metodos do http.
+
+Convencoes restful:
+Url, metodo, descricao
+
+EX: Temos uma URL:/cliente com metodo post, a descricao é novo cliente

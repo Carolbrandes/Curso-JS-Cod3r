@@ -1,0 +1,20 @@
+DNS -> Servidor DNS, ele traduz os nomes de dominio em endereço IP.
+Ex: www.cod3r.com.br -> 54.69.61.89
+
+Registros de dominios com seus respectivos ips
+
+É possivel configurar o dns no servidor
+
+O DNS funciona sobre o protocolo UDP na porta 53
+
+Funcionamento básico do DNS:
+
+1) Usuario informa o endereço no browser
+2) computador envia uma consulta DNS p/ o servidor local
+3) O servidor responde com o endereço IP
+4) computador acessa o servidor a partir do IP obtido.
+
+Busca Iterativa - ao inves do servidor responder com o endereço IP, ele responde com uma referencia de outro servidor dns q vai poder atender essa demanda.
+
+Busca recursiva - um DNS chama outro
+
