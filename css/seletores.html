@@ -6,7 +6,50 @@
     <title>CSS Selectors</title>
     <link rel="stylesheet" href="css/tag.css">
     <style>
-        /* ... */
+        /* vai pegar a ul que esta ao lado de um paragrafo */
+        p+ul {
+            color: #ff0;
+            background-color: #f77;
+        }
+
+        /* com o ~ estamos dizendo: pega o atributo feira que tenha no seu valor a palavra escritorio */
+        [feira~=escritorio] {
+            color: brown;
+            background-color: darkgreen;
+        }
+
+        /* dentro do valor do atributo tem a sequencia "sa" */
+        [feira *=sa] {
+            color: brown;
+            background-color: darkgreen;
+        }
+
+        /* vai colocar estilo nas uls que sejam irmas de um paragrafo (nao precisam ser adjacentes) */
+        p~ul {
+            color: rgb(119, 0, 255);
+            background-color: rgb(119, 223, 255);
+        }
+
+        /*vai pegar os span que sejam os primeiros filhos de algum elemento  */
+        span:nth-child(1) {
+            color: darkred;
+        }
+
+        /* pega os filhos impares de uma section */
+        section> :nth-child(odd) {
+            color: darkviolet;
+        }
+
+        /* pega os filhos pares de uma section */
+        section> :nth-child(even) {
+            color: darkviolet;
+        }
+
+
+        /* pega o 2º elemento do tipo span que seja filho direto de uma section */
+        section>span:nth-of-type(2) {
+            color: crimson;
+        }
     </style>
 </head>
 
