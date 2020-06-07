@@ -6,6 +6,26 @@
     <title>Especificidade CSS</title>
     <style>
         /* https://developer.mozilla.org/pt-BR/docs/Web/CSS/Specificity */
+
+        /* ordem de especificidade:
+            
+            1º) elementos que tem !important
+            2º) id
+            3º) p.NomeClasse (é um p associado a uma classe)
+            4º) classe
+            5º)tag
+
+            Excecao em que o important nao sera aplicado:
+
+            .obs{background-color: red !important;}
+
+            p.obs{background: linear-gradient(to right, red, yellow);}
+
+            Nao ser aplicado pois a propriedade background sobrepoem (é mais especifico que) a background-color, 
+
+        
+        
+         */
     </style>
 </head>
 
