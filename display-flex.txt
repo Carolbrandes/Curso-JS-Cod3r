@@ -1,0 +1,49 @@
+O flex box so trabalha apenas em uma dimensao. 
+
+dimensao principal:
+flex-direction: row  o Main axios e a linha
+flex-direction: column o Main axios e a coluna
+
+Main axis (a dimensao principal) -> usamos o justify-content
+
+Cross axis (dimensao secundaria) -> usamos o align-items
+* aling-items: baseline (ele alinha na pela base da fonte)
+
+quando temos mais de uma linha -> usamos o align-content
+*align-content: center ele vai pegar todas as linha e centralizar no flex container.
+
+*flex-flow: junta as propriedades flex-direction e flex-wrap.
+
+align-self (utilizado em um flex-item filho do flex container)  para alinhar um determinado elemento.
+
+flex-grow: lógica para manipular o espaco que nao esta preenchido. Aplicado no flex-item.
+Ex01: temos um flex-container de 600px e temos 4 elementos cada um 100px e sobra um espaco de 200px.
+Se botarmos o flex-grow com valor 1 para todos os flex-itemns, ele vai somar os flex-growns, e vai pegar esses 200px e dividir pela soma dos flex-growns e ai esse valor sera multiplicado pelo flex-grow somado a largura dos flex-itemns.
+
+1 + 1 + 1 + 1 = 4  (soma flex-grow)
+200 / 4 = 50 
+e ai multiplica 50 pelos flex-grow de cada flex item.
+
+
+flex-shrink: lógica para "encolher". Se temos o flex container de 600px e temos 4 elementos de 500px.. para nao passar de 600px, vamos encolher os flex-itemns.
+
+flex-basis: é a propriedade para definir a largura de um flex-item. Caso o Main axis seja row. Se o main axis for column vai aplicar altura. Ou seja definir o tamanho do elemento no main axis.
+Se o main axis for row, e definirmos um flex-basis:100px e width:200px, quem vai "ganhar" será o flex-basis.
+
+*propriedade "flex" - e uma prop. de atalho, onde em uma unica linha vc defini: grow, shrink e o basis
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
