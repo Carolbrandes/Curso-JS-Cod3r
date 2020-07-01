@@ -20,6 +20,27 @@
             border: solid 5px dodgerblue;
             background: #fff;
         }
+
+        body{
+            display: grid;
+            grid-template-rows: [inicio] 1fr [metade-1] 1fr [metade-2] 1fr [fim]; /*nomeacao das linhas de cada coluna*/
+            grid-template-rows: repeat(3, 1fr);
+            grid-column-gap: 20px; /* da um espaco de 20px da coluna */
+            grid-row-gap: 20px;
+            grid-gap: 50px 10px; /* espaco linha e espaco coluna*/
+        }
+
+        .d1{
+            grid-column-start: metade-2;
+            grid-column-end: fim;
+            grid-column: metade-1 / fim; /* coloca em um inica linha as grid-column-start e gri-column-end*/
+            grid-row: 1 / span 2;
+            /* forma abreviada de escrever as propriedades grid-column.. e grid-row...
+            recebe os argumentos nessa ordem: row-start column-start row-end column-end
+            */
+            grid-area: 1 / metade-1 / span 3 / fim;
+           
+        }
     </style>
 </head>
 

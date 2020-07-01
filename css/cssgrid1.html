@@ -22,6 +22,43 @@
             border: solid 5px dodgerblue;
             background: #fff;
         }
+
+        body{
+            display: grid;
+            grid-template-columns: 50% 50%; /* 2 colunas */
+            grid-template-columns: repeat(4, 8.33% 8.33% 8.33%); /* vai repetir 4 vz, vamos ter 12 colunas cada uma ocupando 8.33%  */
+            grid-template-columns: repeat(12, 8.33%); /* vai repetir 4 vz, vamos ter 12 colunas cada uma ocupando 8.33%  */
+            grid-template-columns: repeat(4, 8.33%); /* vai ter 4 colunas cada uma ocupando 8.33%  */
+            grid-template-columns: repeat(11, 100px) 100px; /* vai colocar 11 colunas 100px e a 12a tb vai ter 100px q foi definido apos a funcao repeat*/
+            grid-template-columns: 200px 20% 1fr; /* a 1a coluna vai ter 200px, a 2 coluna vai ter 20% e a 3a coluna vai pegar 1 fragmento (ou seja vai pegar o resto do que sobrou de 200px - 20%) */
+            grid-template-columns: 3fr 6fr 3fr; /* quebrei a largura em 12 colunas, a 1a col vai pegar 3/12, a 2a 6/12 e a 3a 3/12*/
+            grid-template-rows: 50% 25% 12.5% 12.5%; /* a 1 linha vai ter 50% de altura, a 2a 25% ...  */
+            grid-template-rows: 100px 1fr; 
+            grid-template-rows: 100px auto; /* a 1 linha vai ter 100px e as linhas restantes vao ter a mesma proporcao*/
+        }
+
+        .d8{
+            grid-column-start: 2; /* vai iniciar a partir da coluna 2*/
+            grid-column-end: 4; /* vai terminar na coluna 4*/
+            grid-column-end: span 2; /* de um span de 2 casas, o mesmo efeito da linha anterior */
+            grid-row-start: 3; /* vai iniciar a partir da 3 linha*/
+            grid-row-end: 5; /*vai finalizar na linha 5 */
+            grid-row-end: span 2; /*vai ocupar 2 linhas, mesmo resultado da linha anterior*/
+
+        }
+
+        .d10, .d11{
+            /*podem se sobrepor cuidado!*/
+             grid-column-start: 1;
+             grid-column-end: 3;
+             grid-row-start: 5; /* vai ocorrer sobrepoiscao o elemento 11 vai ficar em cima do elemento 10*/
+             grid-row-end: span 1;
+
+        }
+
+        .d10{
+            z-index: 10;
+        }
     </style>
 </head>
 

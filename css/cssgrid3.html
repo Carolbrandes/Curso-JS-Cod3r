@@ -6,7 +6,57 @@
     <title>CSS Grid #03</title>
     <link rel="stylesheet" href="css/tag.css">
     <style>
-        /* ... */
+        *{
+            padding: 0;
+            margin: 0;
+        }
+
+        header{
+            grid-area: cabecalho;
+        }
+
+        nav{
+            grid-area: navegacao;
+        }
+
+        main{
+            grid-area: conteudo;
+        }
+
+        footer{
+            grid-area: rodape;
+        }
+
+
+        body{
+            display: grid;
+            min-height: 100vh;
+            grid-template-columns: 300px 1fr;
+            grid-template-rows: 100px 1fr 100px;
+            /* e na propriedade grid-template-areas que vamos definir como os elementos serao organizados*/
+            grid-template-areas: 
+            /* na 1 linha o cabecalho vai ocupar as duas colunas q definimos no grid-template-columns*/
+            'cabecalho cabecalho'
+            /*na 2 linha vai ter uma coluna sendo navegacao e a 2 coluna conteudo*/
+            'navegacao conteudo'
+            'rodape rodape'
+            ;
+        }
+
+        @media(max-width: 700px){
+            body{
+                grid-template-columns: 1fr;
+                grid-template-rows: 80px 80px 1fr 100px;
+                grid-template-areas: 
+                'cabecalho'
+                'navegacao'
+                'conteudo'
+                'rodape'
+                ;
+            }
+        }
+
+
     </style>
 </head>
 

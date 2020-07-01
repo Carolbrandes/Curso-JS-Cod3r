@@ -9,7 +9,7 @@ Main axis (a dimensao principal) -> usamos o justify-content
 Cross axis (dimensao secundaria) -> usamos o align-items
 * aling-items: baseline (ele alinha na pela base da fonte)
 
-quando temos mais de uma linha -> usamos o align-content
+quando temos mais de uma linha -> usamos o align-content (alinhamento das multiplas linhas ou colunas)
 *align-content: center ele vai pegar todas as linha e centralizar no flex container.
 
 *flex-flow: junta as propriedades flex-direction e flex-wrap.
@@ -31,6 +31,9 @@ flex-basis: é a propriedade para definir a largura de um flex-item. Caso o Main
 Se o main axis for row, e definirmos um flex-basis:100px e width:200px, quem vai "ganhar" será o flex-basis.
 
 *propriedade "flex" - e uma prop. de atalho, onde em uma unica linha vc defini: grow, shrink e o basis
+
+a propriedade align-self utilizada no flex-item se definida, sobrescreve a propriedade
+align-items (utilizada no cross axis).
 
 
 
