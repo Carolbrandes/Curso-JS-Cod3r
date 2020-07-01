@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #02</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+
+<body class="conteudo exercicio">
+    <div id="primeiro">#primeiro</div>
+    <div>Segundo</div>
+    <div class="terceiro ultimo"><span wb-attrib>.terceiro .ultimo</span></div>
+    <script>
+          document.querySelector('#primeiro').classList.add('destaque');
+
+        // o querySelectorAll retornar um NodeList, e o nodelist tem acesso a funcao foreach, porem as funcoes map, reduce, filter... nao estao presentes
+        const selecionar = seletor => document.querySelectorAll(seletor).forEach(e => e.classList.add('destaque'));
+
+        const removerSelecao = seletor => document.querySelectorAll(seletor).forEach(e => e.classList.remove('destaque'));
+
+        selecionar('div');
+        removerSelecao('*') /* remove a selecao de todos os elementos */
+
+      
+
+    </script>
+</body>
+
+</html>
