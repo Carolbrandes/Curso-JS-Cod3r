@@ -22,7 +22,52 @@
         <p>Fim</p>
     </div>
     <script>
-        // ...
+        function log() {
+            console.log(this)
+        }
+
+        HTMLCollection.prototype.log = log;
+        HTMLElement.prototype.log = log;
+        NodeList.prototype.log = log;
+        Node.prototype.log = log;
+
+        const lista = document.querySelector('div ul');
+        // o parentNode e o elemento pai
+        lista.parentNode.log();
+
+
+        // FUNCOES QUE RETORNAM OS ELEMENTOS CONTANDO COM O ESPACO ENTRE AS TAGS
+        // o childNode e a lista de nos da lista
+        // vai retorna os li`s porem 4 textos que seriam os espacoes em branco, para resolver isso, basta grudar as tags lis e ul tirar os espacos entre elas no html
+        lista.childNodes.log();
+
+        const primeiro = lista.firstChild
+        primeiro.log() /*se nao tirar o espaco entre as lis e a ul vai vir o text q e o espaco em branco*/
+        primeiro.nextSibling.log() /* nao tirando os espacos, ai sim vamos acessar o primeiro li. o nextSibling acessa o proximo elemento irmao */
+
+        const ultimo = lista.lastChild
+        ultimo.log() /* vai retorna text q e o espaco em branco */
+        ultimo.previousSibling.log() /* vai retornar o penultimo elemento, o elemento anterior */
+
+
+        // FUNCOES QUE RETORNAM OS ELEMENTOS SEM CONTAR O ESPACO ENTRE AS TAGS
+        lista.children.log() /*nesse caso vai retornar somente os li`s sem o textos q sao os espacos em branco, retorna como HTMLCollection */
+        lista.firstElementChild.log() /* traz o primeiro elemento de fato*/
+        lista.lastElementChild.log() /*traz o ultimo elemento */
+        lista.parentNode.previousElementSibling.log() /* ele vai pegar o pai da lista e ai vai pegar o elemento irmao anterior */
+        lista.parentNode.nextElementSibling.log() /* ele vai pegar o pai da lista e ai vai pegar o proximo elemento irmao */
+
+        // obs: é preferivel utilizar o querySelector para pegar o elemento do que utilizar as funcoes acima. Usando o querySelectorAll ele retornar um NodeList e nao tem o efeito colateral de trazer espacoes entre as tags.
+
+        document.querySelectorAll('div ul li').log() /* retornar os li`s */
+
+
+
+
+
+
+
+
     </script>
 </body>
 

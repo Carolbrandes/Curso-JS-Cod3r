@@ -12,7 +12,19 @@
         Classes
     </div>
     <script>
-        // ...
+        const classes = document.querySelector('div').classList;
+        classes.add('destaque');
+        classes.remove('destaque');
+        classes.toggle('destaque'); /* se a classe existir ele remove e se nao existir ele add*/
+        console.log(classes.contains('destaque')) /* verifica se determinada classe esta contida dentro da minha lista de classes, ele retorna como true ou false. */
+        console.log(classes.length) /* retorna a quantidade de classes q aquele determinado elemento tem */
+        classes.add('destaque1')
+        classes.add('destaque2')
+
+        // tem um iterator associado, pode ser usado tb o foreach
+        for (let c of classes) {
+            console.log(c)
+        }
     </script>
 </body>
 

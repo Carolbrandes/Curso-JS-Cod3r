@@ -15,7 +15,48 @@
         <img src='http://files.cod3r.com.br/curso-web/logo-estreita.png' alt='logo'>
     </div>
     <script>
-        // ...
+        const img = document.querySelector('img');
+
+        // ACESSANDO O ATRIBUTO SRC DA IMG
+
+        // com a funcao getAttribute estamos acessando o atributo atraves de uma string, entao e util qd queremos passar uma variavel. VAI RETORNAR O VALOR DAQUELA PROPRIEDADE.
+        console.log('getAttribute', img.getAttribute('src'));
+        console.log('src', img.src);
+        console.log('["src"]', img['src']);
+        console.log('alt', img.alt);
+
+
+        console.log('Elemento img .........................')
+        // todos os elementos e os atributos possuem a propriedade nodeType
+        console.log('NodeType', img.nodeType) /* o resultado sera NodeType 1 q significa q ele e do tipo elemento */
+        // nodeType 1 -> tipo elemento
+        // nodeType 2 -> tipo atributo
+        // nodeType 3 -> tipo texto
+
+        console.log('NodeName', img.nodeName) /* aqui conseguimos acessar o nome daquele elemento ou atributo */
+
+        // o getAttributeNode vai retornar o nó, o atributo
+        const src = img.getAttributeNode('src')
+
+        console.log('Atributo src .........................')
+        console.log('NodeType', src.nodeType) /* vai imprimir o nodeType 2 */
+        console.log('NodeName', src.nodeName) /* vai imprimir src */
+        console.log('NodeValue', src.nodeValue)  /* vai imprimir a url q e o valor do atrubuto src*/
+
+        const link = document.querySelector('a');
+        console.log('Elemento "a" ...............................')
+        console.log('href', link.href)
+        console.log('firstChild.nodeType', link.firstChild.nodeType) /*pega o nodeType do primeiro elementro filho. Nesse caso e do tipo 3 (tipo texto) q o texto Cod3r*/
+        link.firstChild.nodeValue = 'Novo Texto'
+        link.innerHTML = 'Novo texto 2'
+        
+
+
+
+
+
+
+
     </script>
 </body>
 

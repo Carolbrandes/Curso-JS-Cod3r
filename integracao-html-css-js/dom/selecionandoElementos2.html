@@ -21,6 +21,14 @@
 
         selecionar('div');
         removerSelecao('*') /* remove a selecao de todos os elementos */
+        selecionar(':not(#primeiro)') /* tds os elementos que nao possuem o id primeiro serao selecionados */
+        removerSelecao('*') /* remove a selecao de todos os elementos */
+        selecionar(":nth-child(1)") /*seleciona o primeiro filho dos elementos, no nosso caso sera a primeiro elemento dentro do body e o span filho do terceiro elemento */
+        removerSelecao('*') /* remove a selecao de todos os elementos */
+        selecionar("div:nth-of-type(1)") /* vai pegar a primeira div */
+        removerSelecao('*') /* remove a selecao de todos os elementos */
+        selecionar('[wb-attrib]') /*vai selecionar os elementos que possuem o atributo wb-attrib */
+
 
       
 

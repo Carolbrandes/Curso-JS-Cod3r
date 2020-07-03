@@ -16,7 +16,17 @@
         </ul>
     </div>
     <script>
-        // ...
+        const lista = document.querySelector('#compras');
+
+        // somente leitura 
+        console.log(lista.attributes) /* pega todos os atributos dentro de uma lista */
+        console.log(lista.attributes[0]) /* pega o primeiro atributo vai imprimir id="compras"*/
+        console.log(lista.attributes.destino) /* vai imprimir destino="escritório" */
+        console.log(lista.attributes['data-urgencia']) /* nesse caso como tem o hifen nao e valido a utilizacao da notacao com o ponto, pq o js interpreta como uma subtracao. */ 
+
+        // NAO E POSSIVEL ATRIBUIR VALORES AS PROPRIEDADES UTILIZANDO O ATTRIBUTES
+        lista.attributes.destino = 7 /* invalido */
+
     </script>
 </body>
 

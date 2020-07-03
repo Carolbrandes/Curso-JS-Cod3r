@@ -22,8 +22,11 @@
 
 <body class="conteudo exercicio">
     <h1>Formulário</h1>
+    <!-- o action e o endpoint -->
     <form name="pesquisa" action="http://www.google.com.br/search">
+        <!-- o q e o parametro que e suportado -->
         <input type="text" name="q" placeholder="Digite o termo...">
+        <!-- hl = host language -->
         <select name="hl">
             <option value="pt-br">Português (Brasil)</option>
             <option value="en-us">Inglês (Americano)</option>
@@ -31,7 +34,14 @@
         <button>Pesquisar</button>
     </form>
     <script>
-        // ...
+        console.log(document.forms) /* vai trazer um HTMLCollection de todos os formularios */
+        console.log(document.forms[0]) 
+        console.log(document.getElementsByName('pesquisa')) /* vai pega o form com atributo name pesquisa, vai trazer um NodeList*/
+        console.log(document.pesquisa) /* procura o elemento q tem o nome pesquisa, ja vai retornar o elemento direto*/
+        console.log(document.pesquisa.q) /* ele entra no form com name pesquisa e pega o elemento que tem o name q */
+        document.pesquisa.q.value = "Linux"
+        document.pesquisa.hl.value = "en-us" /* manipulamos tb o valor selecionado do select */
+        console.log(document.pesquisa.hl.selectedIndex) /* vai trazer ql o indice que foi selecionado */
     </script>
 </body>
 
