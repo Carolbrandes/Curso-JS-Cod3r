@@ -8,10 +8,32 @@
 </head>
 
 <body class="conteudo exercicio">
+    <!-- a vantagem de colocar diretamente na tag e pq fica explicito que aquele elemento esta recebendo uma funcao e a desvantagem é que perdemos a flexibilidade  -->
+    <div>
+        <!-- nesse caso temos que usar a palavra event, pq se nao ele nao vai passar o evento para essa funcao -->
+        <a espera-um-pouco href="https://google.com.br" onclick="navegarEm5Seg(event)">Google</a>
+    </div>
+
+    <!-- nesse caso vamos linkar o evento no arquivo js -->
     <div>
         <a href="https://google.com.br">Google</a>
     </div>
     <script>
-        // ...
+        function navegarEm5Seg(e) {
+            e.preventDefault();
+            console.log("Saindo em 5 seg");
+
+            // o target é o elemento que disparou o evento
+            // window.location.href substitui a url
+            setTimeout(() => { window.location.href = e.target.href }, 5000)
+        }
+
+        // forma 1 selecionou pela tag a 
+        // const a = document.querySelector('a');
+
+        // forma 2 - selecionou o elemento q possui o atributo espera-um-pouco
+        const a = document.querySelector(['espera-um-pouco']);
+        a.onclick = navegarEm5Seg;
+
     </script>
 </body>
