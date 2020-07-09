@@ -10,19 +10,19 @@
             margin: 0;
             display: flex;
         }
-        
+
         .esquerda {
             height: 100vh;
             width: 50%;
             background-color: coral;
         }
-        
+
         .direita {
             height: 100vh;
             width: 50%;
             background-color: cornflowerblue;
         }
-        
+
         .item {
             border: solid 5px black;
             background-color: darkgrey;
@@ -45,7 +45,37 @@
     </div>
     <div class="direita" wm-dropzone></div>
     <script>
-        // ...
+        const items = document.querySelectorAll("[wm-dropzone] .item");
+
+        items.forEach((item, index) => {
+            item.draggable = true; /* para o elemento ficar arrastavel */
+            item.id = item.id || `draggable-tem-${index}`; /* se o elemento nao tiver um id, vamos criar um*/
+            // o id é importante para podermos terminar o evento
+            // ondragstart -> quando começarmos arrastar o elemento
+            item.ondragstart = e => e.dataTransfer.setData('item-id', e.target.id);
+
+        });
+
+        const dropzones = document.querySelectorAll('[wm-dropzone]');
+
+        dropzones.forEach(dropzone => {
+            dropzone.ondragover = e => e.preventDefault();
+
+            // ondrop -> evento qd solta o elemento
+            dropzone.ondrop = function (e) {
+                const id = e.dataTransfer.getData('item-id');
+                const item = document.getElementById(id);
+
+                // e.taget -> local que estou soltando o elemento
+                // o e.target permite que voce  insira um elemento dentro do outro para barrarmos esse comportamento, colocamos dropzone.appendChild
+               // e.taget.appendChild(item);
+
+               dropzone.appendChild(item);
+            }
+        })
+
+
+
     </script>
 </body>
 
