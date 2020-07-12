@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+                .container{
+                        border: 1px solid red;
+                        width: 90%;
+                        margin: 0 auto;
+                        background-color: orange;
+                }
+
+                @media screen and (max-width: 414px){
+                        .container{
+                                width: 100%;
+                                background-color: crimson;
+                        }
+                }
+                .flex{
+                        display: flex;
+                        justify-content: space-evenly;
+                }
+
+                .child{
+                        border: 1px solid blue;
+                        width: 20%;
+                        height: 400px;
+                }
+
+                #div2{
+                        display: none;
+                }
+
+
+        </style>
+</head>
+<body>
+
+        <div class="flex container">
+                <div class="child" id="div1">
+                        <button>Botao</button>
+                </div>
+                <div class="child" id="div2">2</div>
+                <div class="child">3</div>
+        </div>
+
+        <script>
+                const botao = document.querySelector("#div1 > button");
+
+                botao.addEventListener('click', function() {
+                        const div2 = document.querySelector("#div2");
+                        let texto = `<p> Ola tudo bem?</p>`;
+                        div2.style.display="block";
+                        div2.innerHTML = texto;
+
+                })
+
+        </script>
+        
+</body>
+</html>
