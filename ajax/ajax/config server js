@@ -1,0 +1,18 @@
+1) Abrir o terminal na pasta ajax
+2) npm init -y (vai criar o arquivo package.json)
+3) Dentro do arquivo package.json, vamos inserir:
+3.1) dentro de scripts: "start": "nodemon server.js"
+3.2) vamos colocar dentro de "dependecies":{
+        "body-parser": "1.18.2", /* RESPONSAVEL POR FAZER O PARSE DA REQUISICAO*/
+        "express": "4.16.3", /*SERVIDOR EXPRESS*/
+        "multer": "1.17.3" /*PARA FAZER O UPLOAD*/
+}
+3.3) vamos colocar dentro de "devDependecies":{
+        "nodemon": "1.17.3"
+}
+
+4) vamos rodar o comando npm i para instalar as dependecias.
+
+5) Criar o arquivo server.js que vai ser responsavel por prover os dados estaticos e tb para prover algum servico que formos precisar
+
+6) Dentro da pasta ajax vamos iniciar o servidor com comando npm start
