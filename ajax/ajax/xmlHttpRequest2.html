@@ -18,10 +18,52 @@
 </head>
 
 <body class="conteudo exercicio">
+    <!-- o name do input type file é o mesmo name utilizado no arquivo server.js quando chamamos a funcao single('arquivo') -->
     <input type="file" name="arquivo" />
     <div class="progresso"></div>
 
     <script>
-        // ...
+        function ajaxUpLoad(config) {
+            const xhr = new XMLHttpRequest()
+
+            // se xhr.upload estiver presente no objeto
+            if (xhr.upload) {
+                // onprogress -> é a forma que eu tenho de monitorar o progresso do upload, consigo ver a porcentagem q esse arquivo foi carregado
+                xhr.upload.onprogress = e => {
+                    const atual = e.loaded
+                    const total = e.total
+                    const percentual = Math.floor(atual / total * 100)
+                        // vamos chamar a funcao callback
+                    config.progresso({
+                        atual,
+                        total,
+                        percentual
+                    })
+
+                }
+            }
+
+            // vamos chamar a requisicao
+            xhr.open('post', config.url, true)
+                // nesse caso nós vamos receber o formData pq estamos fazendo uma requisicao do tipo post e estamos enviando dados para o servidor
+                // dentro do formData vamos botar o arquivo q foi selecionado a partir do input type file
+            xhr.send(config.formData)
+        }
+        document.querySelector('input[type=file]').addEventListener('change', e => {
+            const formData = new FormData()
+            const inputFile = e.target
+            formData.append(inputFile.name, inputFile.files[0])
+                // vamos pegar o 1º arquivo -> e.target.files[0]
+
+            ajaxUpLoad({
+                url: "upload",
+                formData,
+                // essa funcao progresso é a funcao callback q é chamada sempre que o xhr.upload.onprogress do proprio hmlHttpRequest é invocado
+                progresso(dados) {
+                    const progresso = document.querySelector('.progresso')
+                    progresso.innerHTML = JSON.stringify(dados)
+                }
+            })
+        })
     </script>
 </body>

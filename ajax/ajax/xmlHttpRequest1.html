@@ -11,6 +11,68 @@
     <h1>Estados</h1>
 
     <script>
-        // ...
+        // é uma funcao que vai receber como parametro um objeto que representa as configurações
+        function ajax(config) {
+            const xhr = new XMLHttpRequest();
+            xhr.open(config.metodo, config.url, true); /* 1º param é o tipo de requisição, 2º é a url e o 3º é se a requisição é assincrona. OBS: não faz sentido fazer de forma sincrona, entao na maioria dos casos esse parametro sera true */
+
+            // evento onload - apos os dados terem sido carregados 
+            xhr.onload = e => {
+                // se a requisicao tiver uma resposta bem sucedida
+                if (xhr.status === 200) {
+                    config.sucesso(xhr.response);
+                } else if (xhr.status >= 400) {
+                    config.erro({
+                        code: xhr.status,
+                        text: xhr.statusText
+                    })
+                }
+            }
+
+            // para finalizar vamos chamar a funcao de send que de fato vai enviar a requisição
+            xhr.send();
+        }
+
+        function criarTabela(estados) {
+            // o map serve para transforma o array em outra coisa, nesse caso estamos pegando o array de estados e transformando em um elemento da dom.
+            const linhas = estados.map(estado => {
+                const tdId = document.createElement('td');
+                tdId.textContent = estado.id;
+
+                const tdNome = document.createElement('td');
+                tdNome.textContent = estado.nome;
+
+                const tdSigla = document.createElement('td');
+                tdSigla.textContent = estado.sigla;
+
+                const tr = document.createElement('tr');
+
+                tr.appendChild(tdId);
+                tr.appendChild(tdNome);
+                tr.appendChild(tdSigla);
+
+                return tr;
+            });
+
+            const tabela = document.createElement('table');
+            linhas.forEach(linha => tabela.appendChild(linha));
+
+            document.body.appendChild(tabela)
+        }
+
+        // agora vamos chamar a função
+        ajax({
+            url: 'dados/estados.json',
+            metodo: 'get',
+            sucesso(resposta) {
+                const estados = JSON.parse(resposta);
+                criarTabela(estados);
+            },
+
+            erro(e) {
+                const msg = document.createTextNode(`${e.code}: ${e.text}`);
+                document.body.appendChild(msg);
+            }
+        })
     </script>
 </body>
