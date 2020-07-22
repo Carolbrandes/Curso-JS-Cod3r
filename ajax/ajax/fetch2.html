@@ -47,24 +47,25 @@
             // form.action seria a url para onde vamos enviar os dados
             const resultado = document.getElementById('resultado')
                 // usando fetch com promisse
-                // fetch(form.action, options)
-                //     .then(resp => resp.json)
-                //     .then(json => {
-                //         resultado.innerHTML = JSON.stringify(json)
-                //     })
-                //     // no catch vamos captura caso ocorra algum erro na requisção
-                //     .catch(e => {
-                //         resultado.innerHTML = e
-                //     })
+            fetch(form.action, options)
+                .then(resp => resp.json)
+                .then(json => {
+                    resultado.innerHTML = JSON.stringify(json)
+                })
+                // no catch vamos captura caso ocorra algum erro na requisção
+                .catch(e => {
+                    resultado.innerHTML = e
+                })
 
             // resolvendo com async wait
-            try {
-                const resp = await fetch(form.action, options)
-                const json = await resp.json()
-                resultado.innerHTML = JSON.stringify(json)
-            } catch (e) {
-                resultado.innerHTML = e
-            }
+            // está funcionando
+            // try {
+            //     const resp = await fetch(form.action, options)
+            //     const json = await resp.json()
+            //     resultado.innerHTML = JSON.stringify(json)
+            // } catch (e) {
+            //     resultado.innerHTML = e
+            // }
 
         }
     </script>
