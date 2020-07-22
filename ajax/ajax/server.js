@@ -68,6 +68,19 @@ app.post('/formulario', (req, resp) => {
     })
 })
 
+app.get('/parOuImpar', (req, resp) => {
+    // formas de receber dados do front end no express:
+    // 1) req.body
+    // 2) req.query - qd vc faz um get e voce bota dentro da consulta e bota ? e bota os parametros, ficaria localhost:8081/parOuImpar?numero=1
+    // 3) req.params - os params vc pode colocar la na ulr do get, /parOuImpar/:numero, no navegador ficaria por exemplo: localhost:8081/parOuImpar/3
+    const par = parseInt(req.query.numero) % 2 === 0
+    resp.send({
+        resultado: par ? 'par' : 'impar'
+    })
+})
+
+
+
 // startar o servidor na porta 8080
 app.listen(8081, () => console.log('Executando....'));
 

@@ -9,9 +9,17 @@
 </head>
 
 <body class="conteudo exercicio">
+    <!-- é baseado em promisses, nao é do proprio browser (como o fetch), cliente http importando o axios vamos ter uma maior compatibilidade, sendo maior que o fetch, muito utilizado com react, precisamos de uma referencia para o axios que esta na pasta js -->
     <h1>Estados</h1>
 
+
     <script>
-        // ...
+        const url = 'dados/estados.json'
+        axios(url).then(resp => {
+            // esse data ja e um json convertido para objeto
+            // resp.data e retornado com array
+            const items = resp.data.reduce((html, estado) => html + `<li>${estado.nome}</li>`, '')
+            document.body.insertAdjacentHTML('beforeend', `<ul>${items}</ul>`)
+        })
     </script>
 </body>
