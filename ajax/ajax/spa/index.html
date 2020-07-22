@@ -9,7 +9,7 @@
         nav {
             font-size: 2em;
         }
-
+        
         nav a {
             text-decoration: none;
             color: #FFF;
@@ -25,6 +25,38 @@
     </nav>
     <div class="pagina"></div>
     <script>
-        // ...
+        // vamos passar como 3º param o push = true para guardar no historico
+        function navegarViaAjax(url, seletor, push = true) {
+            if (!url || !seletor) return
+            const elemento = document.querySelector(seletor)
+            fetch(url)
+                .then(resp => resp.text()) /*como queremos pegar o html e nao json, usamos resp.text()*/
+                .then(html => {
+                    elemento.innerHTML = html
+                        // fazendo isso vai aparecer mudar a url e ai vai aparecer no historico
+                    if (push) {
+                        history.pushState({
+                            seletor
+                        }, 'Página ajax', url)
+                    }
+                })
+        }
+
+        document.querySelectorAll('[wm-link]').forEach(link => {
+            const url = link.attributes['wm-link'].value
+            const seletorDestino = link.attributes['wm-destino'].value
+
+            link.addEventListener('click', e => {
+                e.preventDefault()
+                navegarViaAjax(url, seletorDestino)
+            })
+        })
+
+        window.onpopstate = e => {
+            if (e.state) {
+                // pegamos a url atraves de window.location.href, pegamos o seletor atraves do  e.state.seletor
+                navegarViaAjax(window.location.href, e.state.seletor, false)
+            }
+        }
     </script>
 </body>
