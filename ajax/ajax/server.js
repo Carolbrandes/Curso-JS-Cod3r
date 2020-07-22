@@ -60,6 +60,14 @@ app.post('/upload', (req, resp) => {
     })
 })
 
+app.post('/formulario', (req, resp) => {
+    // ...req.body -> td q esta vindo como resposta vou jogar no novo objeto q estou devolvendo como resposta para o front end
+    resp.send({
+        ...req.body,
+        id: 1
+    })
+})
+
 // startar o servidor na porta 8080
 app.listen(8081, () => console.log('Executando....'));
 

@@ -10,7 +10,7 @@
             display: flex;
             flex-direction: column;
         }
-
+        
         form input,
         form select,
         form button {
@@ -27,8 +27,45 @@
         <input type="text" name="sobrenome" placeholder="Sobrenome..." />
         <button>Salvar</button>
     </form>
+    <!-- como estamos enviando dados para o servidor, precisamos no server.js importar o bodyParser para que elem possa interceptar os dados a partir do que ele recebeu da requisicao -->
     <div id="resultado"></div>
     <script>
-        // ...
+        // estamaos interceptando a submissao do formulario
+        // funcao async
+        document.usuarioForm.onsubmit = async e => {
+            e.preventDefault()
+            const form = e.target
+            const data = new FormData(form) /*pega todos os dados preenchidos no formulario e joga na const data que recebe um objeto. Aqui eu posso manipular os dados, add novos dados*/
+            data.append('ajax', true) /*aqui estamos add um novo dado, que seria o campo ajax recebendo o valor true*/
+
+            // vamos passar algumas configurações para a função fetch
+            const options = {
+                method: form.method,
+                body: new URLSearchParams(data) /*passar os dados do formulario p/ que ele possa ir na submissao, se nao passarmos dessa forma os dados nao vao passar para o backend de forma correta*/
+            }
+
+            // form.action seria a url para onde vamos enviar os dados
+            const resultado = document.getElementById('resultado')
+                // usando fetch com promisse
+                // fetch(form.action, options)
+                //     .then(resp => resp.json)
+                //     .then(json => {
+                //         resultado.innerHTML = JSON.stringify(json)
+                //     })
+                //     // no catch vamos captura caso ocorra algum erro na requisção
+                //     .catch(e => {
+                //         resultado.innerHTML = e
+                //     })
+
+            // resolvendo com async wait
+            try {
+                const resp = await fetch(form.action, options)
+                const json = await resp.json()
+                resultado.innerHTML = JSON.stringify(json)
+            } catch (e) {
+                resultado.innerHTML = e
+            }
+
+        }
     </script>
 </body>

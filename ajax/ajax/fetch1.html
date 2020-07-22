@@ -11,6 +11,14 @@
     <h1>Estados</h1>
 
     <script>
-        // ...
+        const url = 'dados/estados.json'
+        fetch(url)
+            // o .json() vai retornar uma promisse,e ai ja tenho o json convertido para objeto
+            .then(resp => resp.json())
+            .then(estados => {
+                // o ,'' é o valor inicial que temos que passar para a função redux para ele fazer as concatenacoes de forma correta
+                const itens = estados.reduce((html, estado) => html + `<li>${estado.nome}</li>`, '')
+                document.body.insertAdjacentHTML('beforeend', `<ul>${itens}</ul>`)
+            })
     </script>
 </body>
