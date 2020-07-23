@@ -1,0 +1,5 @@
+no terminal entrar na pasta gulp
+instalar as dependencias - usando npm i
+vamos instalar o gulp cli (command line interface), vamos fazer essa instalação para termos acesso ao gulp no terminal - npm i -g gulp-cli 
+
+
