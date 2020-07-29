@@ -1,2 +1,10 @@
 files.cod3r.com.br/curso-web/vue.zip
 no terminal na pasta vue, de o comando npm i 
+
+Projeto Calculadora com vue cli:
+
+1) npm i -g @vue/cli
+2) vue create calculator
+3) ele vai perguntar se queremos usar o babel ou slint, clicou em enter para usar o padrao
+4)  cd calculator e depois npm run serve
+5) apagamos a pasta src e criamos uma nova pasta src
