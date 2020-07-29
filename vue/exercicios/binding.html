@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Binding</title>
+    <link rel="stylesheet" href="/css/estilo.css">
+    <script src="/js/vue.min.js"></script>
+</head>
+
+<body class="exercicio">
+    <div id="app">
+        <!-- diretiva: para podermos navegar para o canal no youtube, usamos a diretiva v-bind: podemos fazer isso com qlq propriedade que ela sera interpolada. 
+        * Diretivas são propriedades personalizadas-->
+        <p><a v-bind:href="link">Canal</a></p>
+        <p><a :href="link">Canal (forma reduzida)</a></p>
+
+        <!-- aqui temos outra diretiva que faz atualização em 2 direções ou bind bidirecional -->
+        <p>
+            <input type="text" v-model="nome"><br>
+            <span>{{nome}}</span>
+        </p>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                nome: "Maria",
+                link: "https://youtube.com/cod3rcursos"
+            },
+            watch:{
+                //sempre que o nome for alterado, essa funcao sera chamada
+                nome(novoValor){
+                    console.log(novoValor.toUpperCase())
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
